@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Loan Management</title>
+  <script src="js/script3.js"></script>
+</head>
+<body>
+  <style>
+    /* Basic navbar styling */
+    body { font-family: Arial; padding: 20px; background: #f8f8f8; margin: 0;
+      padding: 0; }
+    form, table { background: #fff; padding: 20px; margin-bottom: 20px; border-radius: 10px; }
+    input, select, textarea { display: block; width: 100%; margin: 10px 0; padding: 10px; }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #004080;
+      font-family: Arial, sans-serif;
+      padding: 0 20px;
+    }
+
+    .navbar .left,
+    .navbar .right {
+      display: flex;
+      align-items: center;
+    }
+
+    .navbar a,
+    .dropbtn {
+      font-size: 16px;
+      color: white;
+      text-align: center;
+      padding: 24px 25px;
+      text-decoration: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .navbar a:hover {
+      background-color: #007bff;
+      padding: 10px 15px;
+      border-radius: 5px;
+    }
+
+   
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f4f6f9;
+  color: #333;
+}
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Header */
+header {
+  background: #0057a3;
+  color: #fff;
+  padding: 20px 0;
+}
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  font-size: 24px;
+}
+nav ul {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+
+/* Hero */
+.hero {
+  background: #e9f1fb;
+  padding: 60px 0;
+}
+.hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.hero .text {
+  flex: 1 1 45%;
+}
+.hero .text h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+.hero .text p {
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+.hero .text .btn {
+  background: #004080;
+  color: #fff;
+  padding: 12px 24px;
+  text-decoration: none;
+  border-radius: 6px;
+}
+.hero .image {
+  flex: 1 1 45%;
+}
+.hero .image img {
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+/* Features */
+.features {
+  padding: 60px 0;
+  background: #fff;
+  text-align: center;
+}
+.features h3 {
+  font-size: 28px;
+  margin-bottom: 40px;
+}
+.feature-grid {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+.feature {
+  flex: 1 1 30%;
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+}
+.feature img {
+  width: 60px;
+  margin-bottom: 15px;
+}
+.feature h4 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.feature p {
+  font-size: 16px;
+}
+
+/* Footer */
+footer {
+  background: #004080;
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+}
+
+  </style>
+  
+  <div class="navbar">
+    <!-- Left section -->
+    <div class="left">
+      <a href="home.php"><img src="images/logo2.png" alt="Logo" width="80" height="80" style=" display: block; padding:0px;margin: -50px -50px -20px -50px;"> </a>
+    </div>
+
+    <!-- Right section -->
+    <div class="right">
+      <a href="member.php">Back</a>
+      
+      <a href="loan_saver_borrower.php">Loan Application Form </a>
+      <a href="loan_status.php">Status Tracking</a>
+      <a href="upload_loan_repayment.php">Loan Repayment </a>
+      <a href="view_loan_repayment.php">Loan Repayment Status</a>
+      <a href="loan_report.php">Loan Report </a>
+      <a href="loan_calculator.html">Loan Calculator</a>
+
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container hero-content">
+      <div class="text">
+        <h2>Smart, Fast & Reliable Loans</h2>
+        <p>Apply, track, and manage your loans online with ease. Our platform provides secure, flexible, and instant loan management for individuals and businesses.</p>
+        <a href="loan_saver_borrower.php" class="btn">Get Started</a>
+      </div>
+      <div class="image">
+        <img src="images/loan_management.jpg" alt="Loan Management" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features">
+    <div class="container">
+      <h3>Our Features</h3>
+      <div class="feature-grid">
+        <div class="feature">
+          <img src="images/icon-apply.png" alt="Apply">
+          <h4>Easy Application</h4>
+          <p>Complete your loan application in minutes with our simple online form.</p>
+        </div>
+        <div class="feature">
+          <img src="images/icon-track.png" alt="Track">
+          <h4>Real-time Tracking</h4>
+          <p>Monitor your loan status and repayment progress from your dashboard.</p>
+        </div>
+        <div class="feature">
+          <img src="images/icon-support.png" alt="Support">
+          <h4>24/7 Support</h4>
+          <p>Our team is always available to help you with your loan-related needs.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  
+ 
+  <footer>
+    <p>&copy; <?= date('Y') ?> DCG Cooperative Society Ltd. All rights reserved.</p>
+  </footer>
+  
+
+  <div id="output"></div>
+</body>
+</html>

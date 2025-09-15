@@ -1,0 +1,246 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Transactions</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f6f9;
+      padding: 30px;
+      
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #333;
+    }
+
+    .balance {
+      font-size: 1.4rem;
+      text-align: center;
+      color: #004080;
+      margin-bottom: 30px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+
+    th, td {
+      padding: 12px;
+      border-bottom: 1px solid #ddd;
+      text-align: left;
+    }
+
+    th {
+      background: #004080;
+      color: white;
+    }
+
+    tr:hover {
+      background-color: #f1f1f1;
+    }
+
+    .no-data {
+      text-align: center;
+      color: #888;
+      padding: 20px;
+    }
+   
+    body {
+  font-family: Arial;
+  padding: 20px;
+  background: #f4f4f4;
+  padding: 0;
+  margin: 0;
+}
+form {
+  background: #fff;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+}
+input, button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+
+
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #004080;
+      font-family: Arial, sans-serif;
+      padding: 0 20px;
+      margin-top: 0;
+    }
+
+    .navbar .left,
+    .navbar .right {
+      display: flex;
+      align-items: center;
+    }
+
+    .navbar a,
+    .dropbtn {
+      font-size: 16px;
+      color: white;
+      text-align: center;
+      padding: 18px 25px;
+      text-decoration: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .navbar a:hover {
+      background-color: #007bff;
+      padding: 10px 15px;
+      border-radius: 5px;
+    }
+
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      right: 0;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      z-index: 1;
+    }
+
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      text-align: left;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #ddd;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    
+footer {
+  text-align: center;
+  padding: 30px;
+  background-color: #004080;
+  color: white;
+  margin-top: 150px;
+}
+
+  </style>
+ 
+</head>
+<body>
+  
+  <div class="navbar">
+    <!-- Left section -->
+    <div class="left">
+      <a href="home.html">Home</a>
+    </div>
+
+    <!-- Right section -->
+    <div class="right">
+      <a href="member.php">Back</a>
+      <a href="set_saving.html">Monthly Savings<br> Amount</a>
+      <a href="savings_transactions.php">Transaction alerts <br>and Summaries</a>
+      <a href="top_up.php">Manual top-up</a>
+      <a href="withdraw.html">Withdrawal</a>
+     
+    </div>
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <div class="container">
+    <h1><i class="fas fa-money-check-alt"></i> Transaction History</h1>
+    <div class="balance" id="balance">Loading balance...</div>
+
+    <table id="transactionsTable">
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Amount (₦)</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody id="transactionBody">
+        <!-- Transactions will be inserted here -->
+      </tbody>
+    </table>
+    <div class="no-data" id="noData" style="display: none;">No transactions found.</div>
+  </div>
+
+  <script>
+  fetch('get_transactions.php') // ✅ Correct file name
+    .then(response => response.json())
+    .then(data => {
+      if (data.error) {
+        document.getElementById('balance').textContent = 'Error: ' + data.error;
+        return;
+      }
+
+      document.getElementById('balance').textContent = `Current Balance: ₦${data.balance}`;
+
+      const tbody = document.getElementById('transactionBody');
+      const noData = document.getElementById('noData');
+
+      if (data.transactions.length === 0) {
+        noData.style.display = 'block';
+        return;
+      }
+
+      data.transactions.forEach(tx => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>${tx.transaction_type}</td>
+          <td>₦${parseFloat(tx.amount).toLocaleString()}</td>
+          <td>${new Date(tx.created_at).toLocaleDateString()}</td>
+        `;
+        tbody.appendChild(row);
+      });
+    })
+    .catch(error => {
+      document.getElementById('balance').textContent = 'Failed to load transactions.';
+      console.error('Fetch error:', error);
+    });
+</script>
+
+<footer>
+    <p>&copy; <?= date('Y') ?> DCG Cooperative Society Ltd. All rights reserved.</p>
+</footer>
+
+
+
+</body>
+</html>
+

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Monthly Savings</title>
+  <style>
+    /* Basic navbar styling */
+    body {
+  font-family: Arial;
+  padding: 20px;
+  background: #f4f4f4;
+   margin: 0;
+  padding: 0;
+}
+form {
+  background: #fff;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+}
+input, button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color:#004080;
+      font-family: Arial, sans-serif;
+      padding: 0 20px;
+}
+
+    .navbar .left,
+    .navbar .right {
+      display: flex;
+      align-items: center;
+    }
+
+    .navbar a,
+    .dropbtn {
+      font-size: 16px;
+      color: white;
+      text-align: center;
+      padding: 18px 25px;
+      text-decoration: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .navbar a:hover {
+      background-color: #007bff;
+      padding: 10px 15px;
+      border-radius: 5px;
+    }
+
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      right: 0;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      z-index: 1;
+    }
+
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      text-align: left;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #ddd;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    
+.top-bar {
+  background-color: #007bff;
+  color: #fff;
+  text-align: center;
+  padding: 30px 20px;
+}
+.top-bar h1 {
+  margin-bottom: 10px;
+}
+.container {
+  width: 90%;
+  max-width: 1000px;
+  margin: auto;
+  padding: 30px 0;
+}
+.card {
+  background: #fff;
+  padding: 25px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+.card h2 {
+  margin-bottom: 15px;
+}
+.card p, .card ul {
+  font-size: 16px;
+  line-height: 1.6;
+}
+.card ul {
+  list-style: none;
+  padding-left: 0;
+}
+.card ul li::before {
+  content: "✔ ";
+  color: green;
+}
+form {
+  margin-top: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+input[type="number"] {
+  flex: 1;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+button, .btn {
+  padding: 10px 20px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  text-decoration: none;
+}
+button:hover, .btn:hover {
+  background: #0056b3;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+th, td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+
+.call-to-action {
+  text-align: center;
+  background-color: #e0f2ff;
+}
+.footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #004080;
+  color: #fff;
+}
+header {
+      background-color: #fff;
+      color: #0056b3;
+      padding: 40px 20px;
+      text-align: center;
+       font-size: 18px;
+    }
+ .container {
+      max-width: 1000px;
+      margin: 40px auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 30px;
+      padding: 0 20px;
+    }
+
+
+.intro {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 30px;
+    }
+
+.intro img {
+      max-width: 100%;
+      border-radius: 10px;
+      flex: 1 1 400px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+.text {
+      flex: 1 1 500px;
+    }
+
+.text h2 {
+      color:   #6aaff5;
+      margin-bottom: 15px;
+    }
+
+.text p {
+      font-size: 18px;
+      line-height: 2.0;
+      margin-bottom: 10px;
+    }
+
+footer {
+      text-align: center;
+      padding: 30px;
+      background-color: #004080;
+      color: #fff;
+      margin-top: 40px;
+      font-size: 16px;
+    }
+
+    
+
+.column {
+  width: 50%;
+  flex: 1;                        /* Equal width */
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.custom-btn {
+  background-color: #007bff;
+  color: white;
+  padding: 12px 24px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.custom-btn:hover {
+  background-color: #0056b3;
+}
+
+
+
+
+
+  </style>
+</head>
+<body>
+
+  <div class="navbar">
+    <!-- Left section -->
+    <div class="left">
+      <a href="home.php"><img src="images/logo2.png" alt="Logo" width="80" height="80" style=" display: block; padding:0px;margin: -50px -50px -20px -50px;"> </a>
+    </div>
+
+    <!-- Right section -->
+    <div class="right">
+      <a href="member.php">Back</a>
+      <a href="set_saving.html">Monthly Savings<br> Amount</a>
+      <a href="savings_transactions.php">Transaction alerts <br>and Summaries</a>
+      <a href="upload_topups_receipt.php">Savings</a>
+      <a href="withdraw_funds.php">Withdrawal</a>
+      
+    </div>
+  </div>
+<header>
+    <h1>Monthly Savings Plan</h1>
+    <p>Secure your future with consistent savings.</p>
+  </header>
+
+  
+  <div class="container">
+      <div class="photo">
+          <img src="images/savings.jpg" alt="Monthly Savings Illustration" width="" />
+      </div>
+      <div class="content">
+        <h2>Why Choose Monthly Savings?</h2>
+        <p>
+          Our Monthly Savings Plan helps you build discipline and financial stability by allowing you to save a fixed amount automatically every month. This approach supports long-term goals like education, business, emergencies, or personal projects.
+        </p>
+        <p>
+          With each contribution, you're one step closer to achieving financial independence. Enjoy peace of mind knowing that your savings grow steadily with full transparency and easy access.
+        </p>
+        <p>
+          Whether you're employed, self-employed, or a student, this plan adjusts to your income level. Take advantage of flexible amounts, scheduled deductions, and optional top-ups when you have extra funds.
+        </p>
+        <p><strong>Start today and develop the habit of saving that pays off tomorrow.</strong></p>
+        <br>
+        <a href="set_saving.html" class="custom-btn">Start Saving Now</a>
+
+
+      </div>
+      
+   
+    
+
+  </div>
+</div>
+
+
+
+<footer>
+  &copy; 2025 DCG Multi-Purpose Cooperative Society Limited. All rights reserved.
+</footer>
+
+
+
+  
+
+</body>
+</html>

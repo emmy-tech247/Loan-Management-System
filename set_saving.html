@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Set Auto Savings</title>
+  <link rel="stylesheet" href="css/style4.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #004080;
+      padding: 0 20px;
+      flex-wrap: wrap;
+    }
+
+    .navbar .left,
+    .navbar .right {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .navbar .left a img {
+      display: block;
+      padding: 0;
+      margin: -50px -50px -20px -50px;
+    }
+
+   .navbar a {
+    font-size: 16px;
+    color: white;
+    padding: 18px 25px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, padding 0.3s ease;
+  }
+
+  .logo-link:hover {
+    background: none !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+  }
+
+  .right a:hover {
+    background-color: #007bff;
+    padding: 10px 15px;
+    border-radius: 5px;
+  }
+    
+    h2 {
+      text-align: center;
+      margin-top: 40px;
+      color: #333;
+    }
+
+    .form-container {
+      max-width: 400px;
+      margin: 30px auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .form-container label {
+      font-weight: bold;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .form-container input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0 20px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    .form-container button {
+      width: 100%;
+      padding: 12px;
+      background-color: #004080;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .form-container button:hover {
+      background-color: #007bff;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      background-color: #004080;
+      color: white;
+      margin-top: 100px;
+    }
+
+    @media (max-width: 768px) {
+      .navbar .right {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .navbar a {
+        padding: 12px 20px;
+      }
+
+      .form-container {
+        margin: 20px;
+        padding: 20px;
+      }
+
+      footer {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="navbar">
+    <div class="left">
+      <a href="home.php"><img src="images/logo2.png" alt="Logo" width="80" height="80"></a>
+    </div>
+    <div class="right">
+      <a href="member.php">Back</a>
+      <a href="set_saving.html">Monthly Savings<br> Amount</a>
+      <a href="savings_transactions.php">Transaction Alerts<br>and Summaries</a>
+      <a href="upload_topups_receipt.php">Savings</a>
+      <a href="withdraw_funds.php">Withdrawal</a>
+    </div>
+  </div>
+
+  <h2>📥 Set Auto Monthly Savings</h2>
+
+  <div class="form-container">
+    <form action="set_savings.php" method="POST" autocomplete="off">
+      <label for="auto_amount">Auto-Save Amount (₦):</label>
+      <input type="number" name="auto_amount" id="auto_amount" min="0" step="100" required>
+      <button type="submit">Save</button>
+    </form>
+  </div>
+
+  <script src="script4.js" defer></script>
+
+  <footer>
+    <p>&copy; <?= date('Y') ?> DCG Cooperative Society Ltd. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,80 @@
+
+        /* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f0f2f5;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Dashboard Box */
+.login-box {
+  background: #fff;
+  padding: 2rem 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+}
+
+/* Heading */
+.login-box h2 {
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+/* Paragraph */
+.login-box p {
+  margin-bottom: 1.5rem;
+  color: #555;
+}
+
+/* Action List */
+.login-box ul {
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 1.5rem;
+}
+
+.login-box ul li {
+  margin: 0.5rem 0;
+}
+
+.login-box ul li a {
+  text-decoration: none;
+  color: #007BFF;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.login-box ul li a:hover {
+  color: #0056b3;
+}
+
+/* Logout Button */
+.logout-btn {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  background-color: #e74c3c;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.logout-btn:hover {
+  background-color: #c0392b;
+}
+
+  

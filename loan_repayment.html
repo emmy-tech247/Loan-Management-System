@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Loan Repayment</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f8f8f8;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #004080;
+      padding: 0 20px;
+    }
+
+    .navbar .left,
+    .navbar .right {
+      display: flex;
+      align-items: center;
+    }
+
+    .navbar a {
+      font-size: 16px;
+      color: white;
+      text-align: center;
+      padding: 24px 25px;
+      text-decoration: none;
+    }
+
+    .navbar a:hover {
+      background-color: #007bff;
+      padding: 10px 15px;
+      border-radius: 5px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .form-container {
+      max-width: 500px;
+      background: #fff;
+      margin: 30px auto;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    button[type="submit"] {
+      width: 100%;
+      margin-top: 25px;
+      padding: 12px;
+      background-color: #004080;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #007bff;
+    }
+
+    
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #004080;
+  color: white;
+}
+
+  </style>
+</head>
+<body>
+
+  <div class="navbar">
+    <div class="left">
+      <a href="home.php">LOGO</a>
+    </div>
+    <div class="right">
+      <a href="member.php">Back</a>
+      <a href="loan_saver_borrower.php">Loan Application Form</a>
+      <a href="loan_status.php">Status Tracking</a>
+      <a href="upload_loan_repayment.php">Loan Repayment </a>
+      <a href="view_loan_repayment.php">Loan Repayment Status</a>
+      <a href="loan_calculator.html">Loan Calculator</a>
+    </div>
+  </div>
+
+  <h2>💳 Repay Your Loan</h2>
+
+  <div class="form-container">
+    <form action="process_repayment.php" method="POST">
+      <label>Loan ID:</label>
+      <input type="number" name="loan_id" required>
+
+      <label>Amount Paid (₦):</label>
+      <input type="number" name="amount_paid" required>
+
+      <label>Payment Method:</label>
+      <select name="method" required>
+        <option value="manual">Manual</option>
+        <option value="gateway">Online Payment</option>
+      </select>
+
+      <button type="submit" name="submit">Repay</button>
+    </form>
+  </div>
+
+<footer>
+  <p>&copy; <?= date('Y') ?> DCG Cooperative Society Ltd. All rights reserved.</p>
+</footer>
+
+
+
+</body>
+</html>

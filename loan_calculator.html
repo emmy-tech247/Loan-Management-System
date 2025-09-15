@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Loan Calculator</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f8f8f8;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #004080;
+      padding: 0 20px;
+      flex-wrap: wrap;
+    }
+
+    .navbar .left,
+    .navbar .right {
+      display: flex;
+      align-items: center;
+    }
+
+    .navbar a {
+      font-size: 16px;
+      color: white;
+      padding: 24px 25px;
+      text-decoration: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    /* Remove hover from logo */
+    .navbar .left a:hover {
+      background-color: transparent;
+    }
+
+    /* Hover effect only for nav links (not logo) */
+    .navbar .right a:hover {
+      background-color: #007bff;
+      padding: 10px 15px;
+      border-radius: 5px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-top: 30px;
+      color: #333;
+      font-size: 1.8rem;
+    }
+
+    .calculator-box {
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      max-width: 500px;
+      margin: 30px auto;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .calculator-box label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    .calculator-box input {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      margin-top: 5px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+
+    .calculator-box button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      background-color: #004080;
+      border: none;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .calculator-box button:hover {
+      background-color: #0056b3;
+    }
+
+    #output {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #333;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #004080;
+      color: white;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .navbar .right {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .navbar a {
+        padding: 12px 15px;
+        width: 100%;
+      }
+
+      h2 {
+        font-size: 1.4rem;
+      }
+
+      .calculator-box {
+        margin: 20px 15px;
+        padding: 20px;
+      }
+
+      .calculator-box button {
+        font-size: 15px;
+        padding: 10px;
+      }
+
+      #output {
+        font-size: 16px;
+      }
+    }
+  </style>
+
+  <script>
+    function calculateLoan() {
+      const amount = parseFloat(document.getElementById("amount_collected").value.trim());
+      const rate = parseFloat(document.getElementById("rate").value.trim()) / 100;
+      const months = parseInt(document.getElementById("months").value.trim());
+
+      const output = document.getElementById("output");
+      output.innerHTML = "";
+
+      if (isNaN(amount) || isNaN(rate) || isNaN(months) || amount <= 0 || months <= 0) {
+        output.innerHTML = "<p style='color:red;'>Please enter valid numbers.</p>";
+        return;
+      }
+
+      const monthlyInterest = rate / 12;
+      const payment = (amount * monthlyInterest) / (1 - Math.pow(1 + monthlyInterest, -months));
+      const total = payment * months;
+
+      output.innerHTML = `
+        <p>📆 Monthly Payment: <strong>₦${payment.toFixed(2)}</strong></p>
+        <p>💰 Total Repayment: <strong>₦${total.toFixed(2)}</strong></p>
+      `;
+    }
+  </script>
+</head>
+<body>
+
+  <div class="navbar">
+    <div class="left">
+      <a href="home.php">
+        <img src="images/logo2.png" alt="Logo" width="80" height="80" style="display: block; margin: -50px -50px -20px -50px;">
+      </a>
+    </div>
+    <div class="right">
+      <a href="member.php">Back</a>
+      <a href="loan_saver_borrower.php">Loan Application Form</a>
+      <a href="loan_status.php">Status Tracking</a>
+      <a href="upload_loan_repayment.php">Loan Repayment</a>
+      <a href="view_loan_repayment.php">Loan Repayment Status</a>
+      <a href="loan_report.php">Loan Report </a>
+      <a href="loan_calculator.html">Loan Calculator</a>
+    </div>
+  </div>
+
+  <h2>📊 Loan Calculator</h2>
+
+  <div class="calculator-box">
+    <label for="amount_collected">Amount (₦):</label>
+    <input type="number" id="amount_collected" placeholder="Enter loan amount" inputmode="decimal">
+
+    <label for="rate">Interest Rate (%):</label>
+    <input type="number" id="rate" value="5" step="0.01" inputmode="decimal">
+
+    <label for="months">Duration (Months):</label>
+    <input type="number" id="months" placeholder="e.g. 12" inputmode="numeric">
+
+    <button onclick="calculateLoan()">Calculate</button>
+
+    <div id="output"></div>
+  </div>
+
+  <footer>
+    <p>&copy; <?= date('Y') ?> DCG Cooperative Society Ltd. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
