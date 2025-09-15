@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Document and E-Signature</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f2f6fa;
+      color: #333;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #004080;
+      padding: 0 20px;
+      flex-wrap: wrap;
+    }
+
+    .navbar .left,
+    .navbar .right {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .navbar a,
+    .dropbtn {
+      font-size: 16px;
+      color: white;
+      text-align: center;
+      padding: 18px 25px;
+      text-decoration: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+ 
+
+    /* Regular hover for other links */
+    .navbar a:not(.logo-link):hover {
+      background-color: #007bff;
+      padding: 10px 15px;
+      border-radius: 5px;
+    }
+
+    .navbar img {
+      display: block;
+      margin: -50px -50px -20px -50px;
+      padding: 0;
+    }
+
+    header {
+      background-color: #fff;
+      color: #0056b3;
+      padding: 40px 20px;
+      text-align: center;
+      font-size: 18px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 28px;
+    }
+
+    main {
+      padding: 30px 20px;
+      max-width: 600px;
+      margin: 40px auto;
+      background-color: #fff;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      border-radius: 10px;
+    }
+
+    main h2 {
+      font-size: 22px;
+      margin-bottom: 20px;
+      text-align: center;
+      color: #007bff;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    input[type="file"],
+    select,
+    button {
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+
+    button {
+      background-color: #004080;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #003366;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      background-color: #004080;
+      color: #fff;
+      margin-top: 40px;
+      font-size: 16px;
+    }
+
+    h2 {
+      text-align: center;
+      padding: 20px 10px;
+      color: #004080;
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .navbar .left,
+      .navbar .right {
+        flex-direction: column;
+        width: 100%;
+        align-items: flex-start;
+      }
+
+      .navbar a {
+        width: 100%;
+        padding: 12px 15px;
+        text-align: left;
+      }
+
+      main {
+        margin: 20px 10px;
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="navbar">
+    <div class="left">
+      <a href="home.php" class="logo-link">
+        <img src="images/logo2.png" alt="Logo" width="80" height="80">
+      </a>
+    </div>
+    <div class="right">
+      <a href="member.php">Back</a>
+      <a href="e_signature.php">E-Signature</a>
+      <a href="document.html">Upload/Download forms</a>
+    </div>
+  </div>
+
+  <header>
+    <h1>Document</h1>
+  </header>
+
+  <main>
+    <h2>Upload Loan Forms or Savings Agreements</h2>
+    <form action="upload_document.php" method="POST" enctype="multipart/form-data">
+      <input type="file" name="document" required>
+      <select name="type" required>
+        <option value="loan_form">Loan Form</option>
+        <option value="savings_agreement">Savings Agreement</option>
+      </select>
+      <button type="submit">Upload Document</button>
+    </form>
+  </main>
+
+  <footer>
+    <p>&copy; <?= date('Y') ?> DCG Cooperative Society Ltd. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

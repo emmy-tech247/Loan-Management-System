@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Apply for Fixed Deposit</title>
+  <link rel="stylesheet" href="css/style5.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      margin: 3px;
+      padding: 0;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color:#004080;
+      padding: 0 20px;
+    }
+
+    .navbar .left,
+    .navbar .right {
+      display: flex;
+      align-items: center;
+    }
+
+    .navbar a {
+      font-size: 16px;
+      color: white;
+      padding: 16px 25px;
+      text-decoration: none;
+    }
+
+    
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      right: 0;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      z-index: 1;
+    }
+
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #ddd;
+    }
+
+    
+    .navbar a:hover {
+      background-color: #007bff;
+      padding: 10px 15px;
+      border-radius: 5px;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    h2 {
+      text-align: center;
+      margin-top: 40px;
+      color: #333;
+    }
+
+    .form-container {
+      max-width: 450px;
+      margin: 30px auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-container label {
+      font-weight: bold;
+      display: block;
+      margin: 15px 0 5px;
+    }
+
+    .form-container input {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    .form-container button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 20px;
+      background-color: #004080;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .form-container button:hover {
+      background-color: #007bff;
+    }
+
+     footer {
+      text-align: center;
+      padding: 30px;
+      background-color: #004080;
+      color: white;
+      margin-top: 100px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="navbar">
+    <div class="left">
+      <a href="home.php">Home</a>
+    </div>
+    <div class="right">
+      <a href="member.php">Back</a>
+      <a href="apply.html">Apply For<br>Fixed Deposit</a>
+      <a href="view_fd.php">View Interest<br>Earned Overtime</a>
+      <a href="withdraw.php">Withdrawal or<br>Rollover Options</a>
+      <a href="certificate.php">Certificate of<br>Fixed Deposit</a>
+    </div>
+  </div>
+
+  <h2>📥 Apply for Fixed Deposit</h2>
+
+  <div class="form-container">
+    <form action="apply_fd.php" method="POST">
+      <label for="amount">Amount (₦):</label>
+      <input type="number" name="amount_deposited" id="amount" required>
+
+      <label for="tenure">Tenure (Months):</label>
+      <input type="number" name="tenure" id="tenure" required>
+
+      <label for="rate">Interest Rate (%):</label>
+      <input type="number" name="rate" id="rate" step="0.01" required>
+
+      <button type="submit" name="submit">Submit Application</button>
+    </form>
+  </div>
+
+  
+
+  <footer>
+    <p>&copy; <?= date('Y') ?> DCG Cooperative Society Ltd. All rights reserved.</p>
+  </footer>
+
+
+
+</body>
+</html>
