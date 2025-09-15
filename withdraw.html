@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Withdraw Savings</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color:#004080;
+      padding: 0 20px;
+    }
+
+    .navbar .left,
+    .navbar .right {
+      display: flex;
+      align-items: center;
+    }
+
+    .navbar a {
+      font-size: 16px;
+      color: white;
+      padding: 15px 25px;
+      text-decoration: none;
+    }
+
+    .navbar a:hover {
+      background-color: #007bff;
+      padding: 10px 15px;
+      border-radius: 5px;
+    }
+
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      right: 0;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      z-index: 1;
+    }
+
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #ddd;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    h2 {
+      text-align: center;
+      margin-top: 40px;
+      color: #333;
+    }
+
+    .form-container {
+      max-width: 400px;
+      margin: 30px auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-container label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .form-container input {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    .form-container button {
+      width: 100%;
+      padding: 12px;
+      background-color: #004080;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .form-container button:hover {
+      background-color: #007bff;
+    }
+   
+footer {
+  text-align: center;
+  padding: 30px;
+  background-color: #004080;
+  color: white;
+  margin-top: 175px;
+}
+  </style>
+</head>
+<body>
+
+  <div class="navbar">
+    <div class="left">
+      <a href="home.html">Home</a>
+    </div>
+    <div class="right">
+      <a href="member.php">Back</a>
+      <a href="set_saving.html">Monthly Savings<br> Amount</a>
+      <a href="savings_transactions.php">Transaction Alerts<br>and Summaries</a>
+      <a href="upload_topups_receipt.php">Manual Top-up</a>
+      <a href="withdraw.html">Withdrawal</a>
+    </div>
+  </div>
+
+  <h2>🏧 Withdraw from Savings</h2>
+
+  <div class="form-container">
+    <form action="withdraw.php" method="POST">
+      <label for="amount">Withdrawal Amount (₦):</label>
+      <input type="number" name="amount" id="amount" required>
+      <button type="submit">Withdraw</button>
+    </form>
+  </div>
+
+  <script src="script4.js"></script>
+
+  <footer>
+    <p>&copy; <?= date('Y') ?> DCG Cooperative Society Ltd. All rights reserved.</p>
+</footer>
+
+
+</body>
+</html>
